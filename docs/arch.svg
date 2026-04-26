@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1610pt" height="126pt" viewBox="0.00 0.00 1610.00 126.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 122)">
+<title>Architecture</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-122 1605.66,-122 1605.66,4 -4,4"/>
+<!-- Dataset -->
+<g id="node1" class="node">
+<title>Dataset</title>
+<path fill="#f8f9fa" stroke="black" d="M497.45,-56C497.45,-56 322.98,-56 322.98,-56 316.98,-56 310.98,-50 310.98,-44 310.98,-44 310.98,-26.4 310.98,-26.4 310.98,-20.4 316.98,-14.4 322.98,-14.4 322.98,-14.4 497.45,-14.4 497.45,-14.4 503.45,-14.4 509.45,-20.4 509.45,-26.4 509.45,-26.4 509.45,-44 509.45,-44 509.45,-50 503.45,-56 497.45,-56"/>
+<text xml:space="preserve" text-anchor="middle" x="410.21" y="-39.4" font-family="Arial" font-size="14.00">patterns.json</text>
+<text xml:space="preserve" text-anchor="middle" x="410.21" y="-22.6" font-family="Arial" font-size="14.00">(5x5 binary samples + labels)</text>
+</g>
+<!-- Loader -->
+<g id="node2" class="node">
+<title>Loader</title>
+<path fill="#f8f9fa" stroke="black" d="M706.83,-56C706.83,-56 622.22,-56 622.22,-56 616.22,-56 610.22,-50 610.22,-44 610.22,-44 610.22,-26.4 610.22,-26.4 610.22,-20.4 616.22,-14.4 622.22,-14.4 622.22,-14.4 706.83,-14.4 706.83,-14.4 712.83,-14.4 718.83,-20.4 718.83,-26.4 718.83,-26.4 718.83,-44 718.83,-44 718.83,-50 712.83,-56 706.83,-56"/>
+<text xml:space="preserve" text-anchor="middle" x="664.52" y="-39.4" font-family="Arial" font-size="14.00">Data Loader</text>
+<text xml:space="preserve" text-anchor="middle" x="664.52" y="-22.6" font-family="Arial" font-size="14.00">build_dataset()</text>
+</g>
+<!-- Dataset&#45;&gt;Loader -->
+<g id="edge1" class="edge">
+<title>Dataset-&gt;Loader</title>
+<path fill="none" stroke="black" d="M509.85,-35.2C539.6,-35.2 571.5,-35.2 598.48,-35.2"/>
+<polygon fill="black" stroke="black" points="598.2,-38.7 608.2,-35.2 598.2,-31.7 598.2,-38.7"/>
+</g>
+<!-- Preprocess -->
+<g id="node3" class="node">
+<title>Preprocess</title>
+<path fill="#f8f9fa" stroke="black" d="M924.39,-56C924.39,-56 831.6,-56 831.6,-56 825.6,-56 819.6,-50 819.6,-44 819.6,-44 819.6,-26.4 819.6,-26.4 819.6,-20.4 825.6,-14.4 831.6,-14.4 831.6,-14.4 924.39,-14.4 924.39,-14.4 930.39,-14.4 936.39,-20.4 936.39,-26.4 936.39,-26.4 936.39,-44 936.39,-44 936.39,-50 930.39,-56 924.39,-56"/>
+<text xml:space="preserve" text-anchor="middle" x="877.99" y="-39.4" font-family="Arial" font-size="14.00">Preprocessing</text>
+<text xml:space="preserve" text-anchor="middle" x="877.99" y="-22.6" font-family="Arial" font-size="14.00">flatten 5x5 -&gt; 25</text>
+</g>
+<!-- Loader&#45;&gt;Preprocess -->
+<g id="edge2" class="edge">
+<title>Loader-&gt;Preprocess</title>
+<path fill="none" stroke="black" d="M719.16,-35.2C746.17,-35.2 779.22,-35.2 808.08,-35.2"/>
+<polygon fill="black" stroke="black" points="807.82,-38.7 817.82,-35.2 807.82,-31.7 807.82,-38.7"/>
+</g>
+<!-- Model -->
+<g id="node4" class="node">
+<title>Model</title>
+<path fill="#f8f9fa" stroke="black" d="M1072.88,-56C1072.88,-56 984.39,-56 984.39,-56 978.39,-56 972.39,-50 972.39,-44 972.39,-44 972.39,-26.4 972.39,-26.4 972.39,-20.4 978.39,-14.4 984.39,-14.4 984.39,-14.4 1072.88,-14.4 1072.88,-14.4 1078.88,-14.4 1084.88,-20.4 1084.88,-26.4 1084.88,-26.4 1084.88,-44 1084.88,-44 1084.88,-50 1078.88,-56 1072.88,-56"/>
+<text xml:space="preserve" text-anchor="middle" x="1028.63" y="-39.4" font-family="Arial" font-size="14.00">SimpleANN</text>
+<text xml:space="preserve" text-anchor="middle" x="1028.63" y="-22.6" font-family="Arial" font-size="14.00">25-5-1, sigmoid</text>
+</g>
+<!-- Preprocess&#45;&gt;Model -->
+<g id="edge3" class="edge">
+<title>Preprocess-&gt;Model</title>
+<path fill="none" stroke="black" d="M936.89,-35.2C944.66,-35.2 952.69,-35.2 960.61,-35.2"/>
+<polygon fill="black" stroke="black" points="960.58,-38.7 970.58,-35.2 960.58,-31.7 960.58,-38.7"/>
+</g>
+<!-- Train -->
+<g id="node5" class="node">
+<title>Train</title>
+<path fill="#f8f9fa" stroke="black" d="M1364.16,-52C1364.16,-52 1132.88,-52 1132.88,-52 1126.88,-52 1120.88,-46 1120.88,-40 1120.88,-40 1120.88,-22.4 1120.88,-22.4 1120.88,-16.4 1126.88,-10.4 1132.88,-10.4 1132.88,-10.4 1364.16,-10.4 1364.16,-10.4 1370.16,-10.4 1376.16,-16.4 1376.16,-22.4 1376.16,-22.4 1376.16,-40 1376.16,-40 1376.16,-46 1370.16,-52 1364.16,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="1248.52" y="-35.4" font-family="Arial" font-size="14.00">Training Loop</text>
+<text xml:space="preserve" text-anchor="middle" x="1248.52" y="-18.6" font-family="Arial" font-size="14.00">forward -&gt; MSE -&gt; backprop -&gt; update</text>
+</g>
+<!-- Model&#45;&gt;Train -->
+<g id="edge4" class="edge">
+<title>Model-&gt;Train</title>
+<path fill="none" stroke="black" d="M1085.18,-34.18C1092.81,-34.04 1100.9,-33.89 1109.24,-33.74"/>
+<polygon fill="black" stroke="black" points="1109.3,-37.24 1119.23,-33.56 1109.17,-30.24 1109.3,-37.24"/>
+</g>
+<!-- Predict -->
+<g id="node7" class="node">
+<title>Predict</title>
+<path fill="#f8f9fa" stroke="black" d="M1270.19,-113.2C1270.19,-113.2 1226.85,-113.2 1226.85,-113.2 1220.85,-113.2 1214.85,-107.2 1214.85,-101.2 1214.85,-101.2 1214.85,-89.2 1214.85,-89.2 1214.85,-83.2 1220.85,-77.2 1226.85,-77.2 1226.85,-77.2 1270.19,-77.2 1270.19,-77.2 1276.19,-77.2 1282.19,-83.2 1282.19,-89.2 1282.19,-89.2 1282.19,-101.2 1282.19,-101.2 1282.19,-107.2 1276.19,-113.2 1270.19,-113.2"/>
+<text xml:space="preserve" text-anchor="middle" x="1248.52" y="-91" font-family="Arial" font-size="14.00">predict()</text>
+</g>
+<!-- Model&#45;&gt;Predict -->
+<g id="edge6" class="edge">
+<title>Model-&gt;Predict</title>
+<path fill="none" stroke="black" d="M1085.08,-51.15C1096.89,-54.5 1109.29,-57.99 1120.88,-61.2 1148.25,-68.77 1179.01,-77.04 1203.37,-83.52"/>
+<polygon fill="black" stroke="black" points="1202.39,-86.89 1212.95,-86.07 1204.19,-80.12 1202.39,-86.89"/>
+</g>
+<!-- Metrics -->
+<g id="node6" class="node">
+<title>Metrics</title>
+<path fill="#f8f9fa" stroke="black" d="M1589.66,-58.4C1589.66,-58.4 1424.16,-58.4 1424.16,-58.4 1418.16,-58.4 1412.16,-52.4 1412.16,-46.4 1412.16,-46.4 1412.16,-12 1412.16,-12 1412.16,-6 1418.16,0 1424.16,0 1424.16,0 1589.66,0 1589.66,0 1595.66,0 1601.66,-6 1601.66,-12 1601.66,-12 1601.66,-46.4 1601.66,-46.4 1601.66,-52.4 1595.66,-58.4 1589.66,-58.4"/>
+<text xml:space="preserve" text-anchor="middle" x="1506.91" y="-41.8" font-family="Arial" font-size="14.00">Metrics</text>
+<text xml:space="preserve" text-anchor="middle" x="1506.91" y="-25" font-family="Arial" font-size="14.00">Accuracy, Precision, Recall,</text>
+<text xml:space="preserve" text-anchor="middle" x="1506.91" y="-8.2" font-family="Arial" font-size="14.00">F1, Confusion Matrix</text>
+</g>
+<!-- Train&#45;&gt;Metrics -->
+<g id="edge5" class="edge">
+<title>Train-&gt;Metrics</title>
+<path fill="none" stroke="black" d="M1376.59,-30.21C1384.54,-30.15 1392.5,-30.08 1400.34,-30.02"/>
+<polygon fill="black" stroke="black" points="1400.25,-33.52 1410.22,-29.95 1400.19,-26.52 1400.25,-33.52"/>
+</g>
+<!-- PredPanel -->
+<g id="node11" class="node">
+<title>PredPanel</title>
+<path fill="#f8f9fa" stroke="black" d="M1560.7,-118C1560.7,-118 1453.13,-118 1453.13,-118 1447.13,-118 1441.13,-112 1441.13,-106 1441.13,-106 1441.13,-88.4 1441.13,-88.4 1441.13,-82.4 1447.13,-76.4 1453.13,-76.4 1453.13,-76.4 1560.7,-76.4 1560.7,-76.4 1566.7,-76.4 1572.7,-82.4 1572.7,-88.4 1572.7,-88.4 1572.7,-106 1572.7,-106 1572.7,-112 1566.7,-118 1560.7,-118"/>
+<text xml:space="preserve" text-anchor="middle" x="1506.91" y="-101.4" font-family="Arial" font-size="14.00">Prediction Panel</text>
+<text xml:space="preserve" text-anchor="middle" x="1506.91" y="-84.6" font-family="Arial" font-size="14.00">class + confidence</text>
+</g>
+<!-- Predict&#45;&gt;PredPanel -->
+<g id="edge10" class="edge">
+<title>Predict-&gt;PredPanel</title>
+<path fill="none" stroke="black" d="M1282.51,-95.46C1319.47,-95.75 1380.6,-96.22 1429.58,-96.6"/>
+<polygon fill="black" stroke="black" points="1429.24,-100.1 1439.27,-96.68 1429.3,-93.1 1429.24,-100.1"/>
+</g>
+<!-- UI -->
+<g id="node8" class="node">
+<title>UI</title>
+<path fill="#f8f9fa" stroke="black" d="M77.12,-82.2C77.12,-82.2 12,-82.2 12,-82.2 6,-82.2 0,-76.2 0,-70.2 0,-70.2 0,-58.2 0,-58.2 0,-52.2 6,-46.2 12,-46.2 12,-46.2 77.12,-46.2 77.12,-46.2 83.12,-46.2 89.12,-52.2 89.12,-58.2 89.12,-58.2 89.12,-70.2 89.12,-70.2 89.12,-76.2 83.12,-82.2 77.12,-82.2"/>
+<text xml:space="preserve" text-anchor="middle" x="44.56" y="-60" font-family="Arial" font-size="14.00">Streamlit UI</text>
+</g>
+<!-- Canvas -->
+<g id="node9" class="node">
+<title>Canvas</title>
+<path fill="#f8f9fa" stroke="black" d="M247.41,-112.2C247.41,-112.2 152.7,-112.2 152.7,-112.2 146.7,-112.2 140.7,-106.2 140.7,-100.2 140.7,-100.2 140.7,-88.2 140.7,-88.2 140.7,-82.2 146.7,-76.2 152.7,-76.2 152.7,-76.2 247.41,-76.2 247.41,-76.2 253.41,-76.2 259.41,-82.2 259.41,-88.2 259.41,-88.2 259.41,-100.2 259.41,-100.2 259.41,-106.2 253.41,-112.2 247.41,-112.2"/>
+<text xml:space="preserve" text-anchor="middle" x="200.05" y="-90" font-family="Arial" font-size="14.00">Canvas Drawing</text>
+</g>
+<!-- UI&#45;&gt;Canvas -->
+<g id="edge7" class="edge">
+<title>UI-&gt;Canvas</title>
+<path fill="none" stroke="black" d="M89.55,-72.8C101.93,-75.22 115.72,-77.91 129.23,-80.55"/>
+<polygon fill="black" stroke="black" points="128.49,-83.98 138.98,-82.46 129.83,-77.11 128.49,-83.98"/>
+</g>
+<!-- DataMgmt -->
+<g id="node12" class="node">
+<title>DataMgmt</title>
+<path fill="#f8f9fa" stroke="black" d="M262.98,-57C262.98,-57 137.12,-57 137.12,-57 131.12,-57 125.12,-51 125.12,-45 125.12,-45 125.12,-27.4 125.12,-27.4 125.12,-21.4 131.12,-15.4 137.12,-15.4 137.12,-15.4 262.98,-15.4 262.98,-15.4 268.98,-15.4 274.98,-21.4 274.98,-27.4 274.98,-27.4 274.98,-45 274.98,-45 274.98,-51 268.98,-57 262.98,-57"/>
+<text xml:space="preserve" text-anchor="middle" x="200.05" y="-40.4" font-family="Arial" font-size="14.00">Dataset Management</text>
+<text xml:space="preserve" text-anchor="middle" x="200.05" y="-23.6" font-family="Arial" font-size="14.00">add/remove/reset</text>
+</g>
+<!-- UI&#45;&gt;DataMgmt -->
+<g id="edge11" class="edge">
+<title>UI-&gt;DataMgmt</title>
+<path fill="none" stroke="black" d="M89.55,-56.18C97.1,-54.8 105.17,-53.33 113.38,-51.83"/>
+<polygon fill="black" stroke="black" points="113.93,-55.29 123.14,-50.05 112.67,-48.4 113.93,-55.29"/>
+</g>
+<!-- Convert -->
+<g id="node10" class="node">
+<title>Convert</title>
+<path fill="#f8f9fa" stroke="black" d="M771.6,-116C771.6,-116 557.45,-116 557.45,-116 551.45,-116 545.45,-110 545.45,-104 545.45,-104 545.45,-86.4 545.45,-86.4 545.45,-80.4 551.45,-74.4 557.45,-74.4 557.45,-74.4 771.6,-74.4 771.6,-74.4 777.6,-74.4 783.6,-80.4 783.6,-86.4 783.6,-86.4 783.6,-104 783.6,-104 783.6,-110 777.6,-116 771.6,-116"/>
+<text xml:space="preserve" text-anchor="middle" x="664.52" y="-99.4" font-family="Arial" font-size="14.00">Canvas-&gt;Grid</text>
+<text xml:space="preserve" text-anchor="middle" x="664.52" y="-82.6" font-family="Arial" font-size="14.00">RGBA -&gt; grayscale -&gt; 5x5 -&gt; binary</text>
+</g>
+<!-- Canvas&#45;&gt;Convert -->
+<g id="edge8" class="edge">
+<title>Canvas-&gt;Convert</title>
+<path fill="none" stroke="black" d="M259.62,-94.33C328.15,-94.47 443.68,-94.72 533.67,-94.92"/>
+<polygon fill="black" stroke="black" points="533.55,-98.42 543.56,-94.94 533.57,-91.42 533.55,-98.42"/>
+</g>
+<!-- Convert&#45;&gt;Predict -->
+<g id="edge9" class="edge">
+<title>Convert-&gt;Predict</title>
+<path fill="none" stroke="black" d="M784,-95.2C913.48,-95.2 1114.29,-95.2 1202.91,-95.2"/>
+<polygon fill="black" stroke="black" points="1202.89,-98.7 1212.89,-95.2 1202.89,-91.7 1202.89,-98.7"/>
+</g>
+<!-- DataMgmt&#45;&gt;Dataset -->
+<g id="edge12" class="edge">
+<title>DataMgmt-&gt;Dataset</title>
+<path fill="none" stroke="black" d="M275.32,-35.84C283.1,-35.81 291.12,-35.77 299.19,-35.73"/>
+<polygon fill="black" stroke="black" points="299.11,-39.23 309.09,-35.68 299.07,-32.23 299.11,-39.23"/>
+</g>
+</g>
+</svg>

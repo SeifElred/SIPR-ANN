@@ -10,6 +10,12 @@ This folder contains all project documentation in one organized place.
 - `LINE_BY_LINE_NOTES.md`  
   Block-by-block walkthrough of core code files for deep understanding.
 
+- `TERMS_AND_VIVA_QUESTIONS.md`  
+  Key ANN/project terms with likely viva questions and concise answers.
+
+- `DIAGRAMS.md`  
+  Ready-to-use Mermaid code for architecture and workflow diagrams.
+
 - `presentation_script.md`  
   5-10 minute presentation script and demo checklist.
 

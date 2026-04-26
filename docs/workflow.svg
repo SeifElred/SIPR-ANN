@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="482pt" height="1048pt" viewBox="0.00 0.00 482.00 1048.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1044)">
+<title>Workflow</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-1044 477.99,-1044 477.99,4 -4,4"/>
+<!-- Start -->
+<g id="node1" class="node">
+<title>Start</title>
+<ellipse fill="#f8f9fa" stroke="black" cx="293.43" cy="-1022" rx="51.3" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="293.43" y="-1017.8" font-family="Arial" font-size="14.00">Start App</text>
+</g>
+<!-- Load -->
+<g id="node2" class="node">
+<title>Load</title>
+<path fill="#f8f9fa" stroke="black" d="M347.03,-967C347.03,-967 239.84,-967 239.84,-967 233.84,-967 227.84,-961 227.84,-955 227.84,-955 227.84,-943 227.84,-943 227.84,-937 233.84,-931 239.84,-931 239.84,-931 347.03,-931 347.03,-931 353.03,-931 359.03,-937 359.03,-943 359.03,-943 359.03,-955 359.03,-955 359.03,-961 353.03,-967 347.03,-967"/>
+<text xml:space="preserve" text-anchor="middle" x="293.43" y="-944.8" font-family="Arial" font-size="14.00">Load patterns.json</text>
+</g>
+<!-- Start&#45;&gt;Load -->
+<g id="edge1" class="edge">
+<title>Start-&gt;Load</title>
+<path fill="none" stroke="black" d="M293.43,-1003.81C293.43,-996.23 293.43,-987.1 293.43,-978.54"/>
+<polygon fill="black" stroke="black" points="296.93,-978.54 293.43,-968.54 289.93,-978.54 296.93,-978.54"/>
+</g>
+<!-- SetParams -->
+<g id="node3" class="node">
+<title>SetParams</title>
+<path fill="#f8f9fa" stroke="black" d="M373.08,-894C373.08,-894 213.79,-894 213.79,-894 207.79,-894 201.79,-888 201.79,-882 201.79,-882 201.79,-864.4 201.79,-864.4 201.79,-858.4 207.79,-852.4 213.79,-852.4 213.79,-852.4 373.08,-852.4 373.08,-852.4 379.08,-852.4 385.08,-858.4 385.08,-864.4 385.08,-864.4 385.08,-882 385.08,-882 385.08,-888 379.08,-894 373.08,-894"/>
+<text xml:space="preserve" text-anchor="middle" x="293.43" y="-877.4" font-family="Arial" font-size="14.00">Set hyperparameters</text>
+<text xml:space="preserve" text-anchor="middle" x="293.43" y="-860.6" font-family="Arial" font-size="14.00">(epochs, lr, test split, seed)</text>
+</g>
+<!-- Load&#45;&gt;SetParams -->
+<g id="edge2" class="edge">
+<title>Load-&gt;SetParams</title>
+<path fill="none" stroke="black" d="M293.43,-930.51C293.43,-923.15 293.43,-914.35 293.43,-905.92"/>
+<polygon fill="black" stroke="black" points="296.93,-905.95 293.43,-895.95 289.93,-905.95 296.93,-905.95"/>
+</g>
+<!-- TrainClick -->
+<g id="node4" class="node">
+<title>TrainClick</title>
+<path fill="#f8f9fa" stroke="black" d="M343.5,-815.4C343.5,-815.4 243.36,-815.4 243.36,-815.4 237.36,-815.4 231.36,-809.4 231.36,-803.4 231.36,-803.4 231.36,-791.4 231.36,-791.4 231.36,-785.4 237.36,-779.4 243.36,-779.4 243.36,-779.4 343.5,-779.4 343.5,-779.4 349.5,-779.4 355.5,-785.4 355.5,-791.4 355.5,-791.4 355.5,-803.4 355.5,-803.4 355.5,-809.4 349.5,-815.4 343.5,-815.4"/>
+<text xml:space="preserve" text-anchor="middle" x="293.43" y="-793.2" font-family="Arial" font-size="14.00">Click Train Model</text>
+</g>
+<!-- SetParams&#45;&gt;TrainClick -->
+<g id="edge3" class="edge">
+<title>SetParams-&gt;TrainClick</title>
+<path fill="none" stroke="black" d="M293.43,-852.03C293.43,-844.26 293.43,-835.23 293.43,-826.82"/>
+<polygon fill="black" stroke="black" points="296.93,-827.05 293.43,-817.05 289.93,-827.05 296.93,-827.05"/>
+</g>
+<!-- Split -->
+<g id="node5" class="node">
+<title>Split</title>
+<path fill="#f8f9fa" stroke="black" d="M304.27,-742.4C304.27,-742.4 158.59,-742.4 158.59,-742.4 152.59,-742.4 146.59,-736.4 146.59,-730.4 146.59,-730.4 146.59,-718.4 146.59,-718.4 146.59,-712.4 152.59,-706.4 158.59,-706.4 158.59,-706.4 304.27,-706.4 304.27,-706.4 310.27,-706.4 316.27,-712.4 316.27,-718.4 316.27,-718.4 316.27,-730.4 316.27,-730.4 316.27,-736.4 310.27,-742.4 304.27,-742.4"/>
+<text xml:space="preserve" text-anchor="middle" x="231.43" y="-720.2" font-family="Arial" font-size="14.00">Shuffle + Train/Test Split</text>
+</g>
+<!-- TrainClick&#45;&gt;Split -->
+<g id="edge4" class="edge">
+<title>TrainClick-&gt;Split</title>
+<path fill="none" stroke="black" d="M278.42,-779.21C271.04,-770.75 261.98,-760.38 253.8,-751.01"/>
+<polygon fill="black" stroke="black" points="256.51,-748.8 247.3,-743.57 251.24,-753.4 256.51,-748.8"/>
+</g>
+<!-- Train -->
+<g id="node6" class="node">
+<title>Train</title>
+<path fill="#f8f9fa" stroke="black" d="M310.63,-669.4C310.63,-669.4 118.24,-669.4 118.24,-669.4 112.24,-669.4 106.24,-663.4 106.24,-657.4 106.24,-657.4 106.24,-639.8 106.24,-639.8 106.24,-633.8 112.24,-627.8 118.24,-627.8 118.24,-627.8 310.63,-627.8 310.63,-627.8 316.63,-627.8 322.63,-633.8 322.63,-639.8 322.63,-639.8 322.63,-657.4 322.63,-657.4 322.63,-663.4 316.63,-669.4 310.63,-669.4"/>
+<text xml:space="preserve" text-anchor="middle" x="214.43" y="-652.8" font-family="Arial" font-size="14.00">Train ANN</text>
+<text xml:space="preserve" text-anchor="middle" x="214.43" y="-636" font-family="Arial" font-size="14.00">forward + backprop over epochs</text>
+</g>
+<!-- Split&#45;&gt;Train -->
+<g id="edge5" class="edge">
+<title>Split-&gt;Train</title>
+<path fill="none" stroke="black" d="M227.4,-705.91C225.69,-698.47 223.64,-689.55 221.67,-681.03"/>
+<polygon fill="black" stroke="black" points="225.09,-680.27 219.43,-671.31 218.27,-681.84 225.09,-680.27"/>
+</g>
+<!-- Eval -->
+<g id="node7" class="node">
+<title>Eval</title>
+<path fill="#f8f9fa" stroke="black" d="M271.12,-590.8C271.12,-590.8 157.74,-590.8 157.74,-590.8 151.74,-590.8 145.74,-584.8 145.74,-578.8 145.74,-578.8 145.74,-544.4 145.74,-544.4 145.74,-538.4 151.74,-532.4 157.74,-532.4 157.74,-532.4 271.12,-532.4 271.12,-532.4 277.12,-532.4 283.12,-538.4 283.12,-544.4 283.12,-544.4 283.12,-578.8 283.12,-578.8 283.12,-584.8 277.12,-590.8 271.12,-590.8"/>
+<text xml:space="preserve" text-anchor="middle" x="214.43" y="-574.2" font-family="Arial" font-size="14.00">Compute Metrics</text>
+<text xml:space="preserve" text-anchor="middle" x="214.43" y="-557.4" font-family="Arial" font-size="14.00">loss, train/test acc,</text>
+<text xml:space="preserve" text-anchor="middle" x="214.43" y="-540.6" font-family="Arial" font-size="14.00">precision, recall, F1</text>
+</g>
+<!-- Train&#45;&gt;Eval -->
+<g id="edge6" class="edge">
+<title>Train-&gt;Eval</title>
+<path fill="none" stroke="black" d="M214.43,-627.46C214.43,-620.03 214.43,-611.33 214.43,-602.76"/>
+<polygon fill="black" stroke="black" points="217.93,-602.8 214.43,-592.8 210.93,-602.8 217.93,-602.8"/>
+</g>
+<!-- Show -->
+<g id="node8" class="node">
+<title>Show</title>
+<path fill="#f8f9fa" stroke="black" d="M280.85,-495.4C280.85,-495.4 148.01,-495.4 148.01,-495.4 142.01,-495.4 136.01,-489.4 136.01,-483.4 136.01,-483.4 136.01,-465.8 136.01,-465.8 136.01,-459.8 142.01,-453.8 148.01,-453.8 148.01,-453.8 280.85,-453.8 280.85,-453.8 286.85,-453.8 292.85,-459.8 292.85,-465.8 292.85,-465.8 292.85,-483.4 292.85,-483.4 292.85,-489.4 286.85,-495.4 280.85,-495.4"/>
+<text xml:space="preserve" text-anchor="middle" x="214.43" y="-478.8" font-family="Arial" font-size="14.00">Show confusion matrix</text>
+<text xml:space="preserve" text-anchor="middle" x="214.43" y="-462" font-family="Arial" font-size="14.00">+ per-sample outputs</text>
+</g>
+<!-- Eval&#45;&gt;Show -->
+<g id="edge7" class="edge">
+<title>Eval-&gt;Show</title>
+<path fill="none" stroke="black" d="M214.43,-532.3C214.43,-524.25 214.43,-515.44 214.43,-507.21"/>
+<polygon fill="black" stroke="black" points="217.93,-507.24 214.43,-497.24 210.93,-507.24 217.93,-507.24"/>
+</g>
+<!-- Unlock -->
+<g id="node9" class="node">
+<title>Unlock</title>
+<path fill="#f8f9fa" stroke="black" d="M273.86,-416.8C273.86,-416.8 155.01,-416.8 155.01,-416.8 149.01,-416.8 143.01,-410.8 143.01,-404.8 143.01,-404.8 143.01,-392.8 143.01,-392.8 143.01,-386.8 149.01,-380.8 155.01,-380.8 155.01,-380.8 273.86,-380.8 273.86,-380.8 279.86,-380.8 285.86,-386.8 285.86,-392.8 285.86,-392.8 285.86,-404.8 285.86,-404.8 285.86,-410.8 279.86,-416.8 273.86,-416.8"/>
+<text xml:space="preserve" text-anchor="middle" x="214.43" y="-394.6" font-family="Arial" font-size="14.00">Unlock Pattern Input</text>
+</g>
+<!-- Show&#45;&gt;Unlock -->
+<g id="edge8" class="edge">
+<title>Show-&gt;Unlock</title>
+<path fill="none" stroke="black" d="M214.43,-453.43C214.43,-445.66 214.43,-436.63 214.43,-428.22"/>
+<polygon fill="black" stroke="black" points="217.93,-428.45 214.43,-418.45 210.93,-428.45 217.93,-428.45"/>
+</g>
+<!-- Draw -->
+<g id="node10" class="node">
+<title>Draw</title>
+<path fill="#f8f9fa" stroke="black" d="M261.18,-343.8C261.18,-343.8 165.69,-343.8 165.69,-343.8 159.69,-343.8 153.69,-337.8 153.69,-331.8 153.69,-331.8 153.69,-319.8 153.69,-319.8 153.69,-313.8 159.69,-307.8 165.69,-307.8 165.69,-307.8 261.18,-307.8 261.18,-307.8 267.18,-307.8 273.18,-313.8 273.18,-319.8 273.18,-319.8 273.18,-331.8 273.18,-331.8 273.18,-337.8 267.18,-343.8 261.18,-343.8"/>
+<text xml:space="preserve" text-anchor="middle" x="213.43" y="-321.6" font-family="Arial" font-size="14.00">Draw on Canvas</text>
+</g>
+<!-- Unlock&#45;&gt;Draw -->
+<g id="edge9" class="edge">
+<title>Unlock-&gt;Draw</title>
+<path fill="none" stroke="black" d="M214.19,-380.61C214.08,-373.03 213.96,-363.9 213.83,-355.34"/>
+<polygon fill="black" stroke="black" points="217.33,-355.29 213.69,-345.34 210.33,-355.39 217.33,-355.29"/>
+</g>
+<!-- Convert -->
+<g id="node11" class="node">
+<title>Convert</title>
+<path fill="#f8f9fa" stroke="black" d="M298.43,-270.8C298.43,-270.8 120.44,-270.8 120.44,-270.8 114.44,-270.8 108.44,-264.8 108.44,-258.8 108.44,-258.8 108.44,-246.8 108.44,-246.8 108.44,-240.8 114.44,-234.8 120.44,-234.8 120.44,-234.8 298.43,-234.8 298.43,-234.8 304.43,-234.8 310.43,-240.8 310.43,-246.8 310.43,-246.8 310.43,-258.8 310.43,-258.8 310.43,-264.8 304.43,-270.8 298.43,-270.8"/>
+<text xml:space="preserve" text-anchor="middle" x="209.43" y="-248.6" font-family="Arial" font-size="14.00">Convert drawing to 5x5 binary</text>
+</g>
+<!-- Draw&#45;&gt;Convert -->
+<g id="edge10" class="edge">
+<title>Draw-&gt;Convert</title>
+<path fill="none" stroke="black" d="M212.46,-307.61C212.03,-299.94 211.51,-290.69 211.02,-282.04"/>
+<polygon fill="black" stroke="black" points="214.53,-282.13 210.48,-272.34 207.55,-282.52 214.53,-282.13"/>
+</g>
+<!-- Predict -->
+<g id="node12" class="node">
+<title>Predict</title>
+<path fill="#f8f9fa" stroke="black" d="M271.95,-197.8C271.95,-197.8 116.92,-197.8 116.92,-197.8 110.92,-197.8 104.92,-191.8 104.92,-185.8 104.92,-185.8 104.92,-173.8 104.92,-173.8 104.92,-167.8 110.92,-161.8 116.92,-161.8 116.92,-161.8 271.95,-161.8 271.95,-161.8 277.95,-161.8 283.95,-167.8 283.95,-173.8 283.95,-173.8 283.95,-185.8 283.95,-185.8 283.95,-191.8 277.95,-197.8 271.95,-197.8"/>
+<text xml:space="preserve" text-anchor="middle" x="194.43" y="-175.6" font-family="Arial" font-size="14.00">Predict class + confidence</text>
+</g>
+<!-- Convert&#45;&gt;Predict -->
+<g id="edge11" class="edge">
+<title>Convert-&gt;Predict</title>
+<path fill="none" stroke="black" d="M205.8,-234.61C204.18,-226.94 202.23,-217.69 200.4,-209.04"/>
+<polygon fill="black" stroke="black" points="203.83,-208.37 198.34,-199.31 196.99,-209.82 203.83,-208.37"/>
+</g>
+<!-- Decision -->
+<g id="node13" class="node">
+<title>Decision</title>
+<path fill="#f8f9fa" stroke="black" d="M160.52,-123.37C160.52,-123.37 34.34,-108.23 34.34,-108.23 28.38,-107.51 28.38,-106.09 34.34,-105.37 34.34,-105.37 160.52,-90.23 160.52,-90.23 166.48,-89.51 178.39,-89.51 184.35,-90.23 184.35,-90.23 310.53,-105.37 310.53,-105.37 316.49,-106.09 316.49,-107.51 310.53,-108.23 310.53,-108.23 184.35,-123.37 184.35,-123.37 178.39,-124.09 166.48,-124.09 160.52,-123.37"/>
+<text xml:space="preserve" text-anchor="middle" x="172.43" y="-102.6" font-family="Arial" font-size="14.00">Need dataset update?</text>
+</g>
+<!-- Predict&#45;&gt;Decision -->
+<g id="edge12" class="edge">
+<title>Predict-&gt;Decision</title>
+<path fill="none" stroke="black" d="M189.11,-161.61C186.64,-153.65 183.65,-143.99 180.88,-135.07"/>
+<polygon fill="black" stroke="black" points="184.31,-134.3 178.01,-125.79 177.62,-136.37 184.31,-134.3"/>
+</g>
+<!-- Edit -->
+<g id="node14" class="node">
+<title>Edit</title>
+<path fill="#f8f9fa" stroke="black" d="M461.99,-36C461.99,-36 238.88,-36 238.88,-36 232.88,-36 226.88,-30 226.88,-24 226.88,-24 226.88,-12 226.88,-12 226.88,-6 232.88,0 238.88,0 238.88,0 461.99,0 461.99,0 467.99,0 473.99,-6 473.99,-12 473.99,-12 473.99,-24 473.99,-24 473.99,-30 467.99,-36 461.99,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="350.43" y="-13.8" font-family="Arial" font-size="14.00">Add / Remove / Undo / Reset sample</text>
+</g>
+<!-- Decision&#45;&gt;Edit -->
+<g id="edge13" class="edge">
+<title>Decision-&gt;Edit</title>
+<path fill="none" stroke="black" d="M201.03,-91.85C228.96,-78.23 271.93,-57.28 304.62,-41.34"/>
+<polygon fill="black" stroke="black" points="306.03,-44.54 313.49,-37.02 302.96,-38.25 306.03,-44.54"/>
+<text xml:space="preserve" text-anchor="middle" x="289.44" y="-58.2" font-family="Arial" font-size="14.00">Yes</text>
+</g>
+<!-- End -->
+<g id="node15" class="node">
+<title>End</title>
+<ellipse fill="#f8f9fa" stroke="black" cx="104.43" cy="-18" rx="104.43" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="104.43" y="-13.8" font-family="Arial" font-size="14.00">End / Present Results</text>
+</g>
+<!-- Decision&#45;&gt;End -->
+<g id="edge15" class="edge">
+<title>Decision-&gt;End</title>
+<path fill="none" stroke="black" d="M159.96,-89.88C150.21,-77.43 136.45,-59.87 125.06,-45.33"/>
+<polygon fill="black" stroke="black" points="127.85,-43.21 118.93,-37.5 122.34,-47.53 127.85,-43.21"/>
+<text xml:space="preserve" text-anchor="middle" x="153.47" y="-58.2" font-family="Arial" font-size="14.00">No</text>
+</g>
+<!-- Edit&#45;&gt;TrainClick -->
+<g id="edge14" class="edge">
+<title>Edit-&gt;TrainClick</title>
+<path fill="none" stroke="black" d="M350.43,-36.29C350.43,-53.81 350.43,-81.69 350.43,-105.8 350.43,-725.4 350.43,-725.4 350.43,-725.4 350.43,-743.29 339.29,-759.25 326.85,-771.47"/>
+<polygon fill="black" stroke="black" points="324.78,-768.63 319.72,-777.94 329.48,-773.82 324.78,-768.63"/>
+</g>
+</g>
+</svg>

@@ -121,7 +121,7 @@ with left:
 
     c1, c2 = st.columns(2)
     with c1:
-        if st.button("Train Model", use_container_width=True):
+        if st.button("Train Model", width='stretch'):
             x, y, patterns = build_dataset(dataset_path=dataset_path)
             rng = np.random.default_rng(int(seed))
             idx = np.arange(len(x))
@@ -185,7 +185,7 @@ with left:
             }
 
     with c2:
-        if st.button("Reset Grid", use_container_width=True):
+        if st.button("Reset Grid", width='stretch'):
             st.session_state.grid = [[0 for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
             update_checkboxes_from_grid()
             st.session_state.canvas_key += 1
@@ -232,7 +232,7 @@ with left:
                 "accuracy": st.session_state.train_history.accuracies,
             }
         ).set_index("epoch")
-        st.line_chart(history_df[["loss", "accuracy"]], use_container_width=True)
+        st.line_chart(history_df[["loss", "accuracy"]], width='stretch')
 
     patterns = load_patterns(dataset_path=dataset_path)
     name_list = sorted(patterns.keys())
@@ -283,7 +283,7 @@ with left:
             with st.expander("All samples (table)", expanded=False):
                 st.dataframe(
                     [{"name": n, "label": int(patterns[n]["label"])} for n in name_list],
-                    use_container_width=True,
+                    width='stretch',
                     hide_index=True,
                 )
 
@@ -309,14 +309,14 @@ with left:
         if presentation_mode:
             tab1, tab2 = st.tabs(["Per-Sample Outputs", "Confusion Matrix"])
             with tab1:
-                st.dataframe(sample_df, use_container_width=True)
+                st.dataframe(sample_df, width='stretch')
             with tab2:
-                st.dataframe(cm_df, use_container_width=True)
+                st.dataframe(cm_df, width='stretch')
         else:
             st.subheader("Per-Sample Output Table")
-            st.dataframe(sample_df, use_container_width=True)
+            st.dataframe(sample_df, width='stretch')
             st.subheader("Confusion Matrix")
-            st.dataframe(cm_df, use_container_width=True)
+            st.dataframe(cm_df, width='stretch')
 
 with right:
     st.subheader("Pattern Input")
@@ -340,7 +340,7 @@ with right:
                 with control_col1:
                     brush_size = st.slider("Brush Size", min_value=4, max_value=18, value=10, step=1)
                 with control_col2:
-                    if st.button("Clear Canvas", use_container_width=True):
+                    if st.button("Clear Canvas", width='stretch'):
                         st.session_state.canvas_key += 1
                         st.session_state.grid = [[0 for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
                         update_checkboxes_from_grid()
@@ -373,7 +373,7 @@ with right:
                 st.image(buf, caption="Model Input (5x5)", width=140)
 
         grid_arr = np.array(st.session_state.grid, dtype=float).reshape(1, INPUT_SIZE)
-        if st.button("Predict", use_container_width=True):
+        if st.button("Predict", width='stretch'):
             prob = float(st.session_state.trained_model.predict(grid_arr)[0, 0])
             pred = 1 if prob >= 0.5 else 0
             st.session_state.last_prediction = {"pred": pred, "prob_one": prob}
@@ -392,7 +392,7 @@ with right:
             st.subheader("Add Drawn Pattern to Dataset")
             sample_name = st.text_input("Sample name", value="new_sample")
             sample_label = st.selectbox("Sample label", options=[0, 1], index=0)
-            if st.button("Add Sample", use_container_width=True):
+            if st.button("Add Sample", width='stretch'):
                 patterns = load_patterns(dataset_path=dataset_path)
                 patterns[sample_name] = {
                     "label": int(sample_label),
@@ -402,7 +402,7 @@ with right:
                 st.session_state.last_added_sample_name = sample_name
                 st.success(f"Saved sample '{sample_name}' to {dataset_path}")
 
-            if st.button("Undo Last Added Sample", use_container_width=True):
+            if st.button("Undo Last Added Sample", width='stretch'):
                 last_name = st.session_state.last_added_sample_name
                 if not last_name:
                     st.info("No recently added sample to undo.")
@@ -424,7 +424,7 @@ with right:
                     options=list(current_patterns.keys()),
                     index=0,
                 )
-                if st.button("Remove Selected Sample", use_container_width=True):
+                if st.button("Remove Selected Sample", width='stretch'):
                     patterns = load_patterns(dataset_path=dataset_path)
                     if delete_name in patterns:
                         del patterns[delete_name]
@@ -433,6 +433,6 @@ with right:
                     else:
                         st.warning("Sample was not found. Refresh and try again.")
 
-            if st.button("Reset Dataset to Default Samples", use_container_width=True):
+            if st.button("Reset Dataset to Default Samples", width='stretch'):
                 save_patterns(default_patterns(), dataset_path=dataset_path)
                 st.success(f"Dataset reset to default samples in {dataset_path}")

@@ -63,7 +63,7 @@ streamlit run streamlit_app.py
 
 Frontend features:
 - Train with adjustable epochs, learning rate, and seed
-- Faster 5x5 editor using a table-style grid input
+- Visual canvas input with automatic 5x5 conversion
 - Predict drawn pattern after training
 - Add newly drawn samples directly to `patterns.json`
 - Re-train instantly to interpret dataset changes live

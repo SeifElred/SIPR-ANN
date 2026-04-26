@@ -8,6 +8,9 @@ import numpy as np
 
 
 DEFAULT_DATASET_PATH = "patterns.json"
+GRID_SIZE = 5
+INPUT_SIZE = GRID_SIZE * GRID_SIZE
+DEFAULT_HIDDEN_SIZE = 5
 
 
 def sigmoid(x: np.ndarray) -> np.ndarray:
@@ -32,7 +35,13 @@ class SimpleANN:
     - Output : 1 neuron (binary classification)
     """
 
-    def __init__(self, input_size: int = 25, hidden_size: int = 5, learning_rate: float = 0.5, seed: int = 42) -> None:
+    def __init__(
+        self,
+        input_size: int = INPUT_SIZE,
+        hidden_size: int = DEFAULT_HIDDEN_SIZE,
+        learning_rate: float = 0.5,
+        seed: int = 42,
+    ) -> None:
         self.learning_rate = learning_rate
         rng = np.random.default_rng(seed)
 
@@ -107,7 +116,7 @@ class SimpleANN:
 
 def flatten_pattern(pattern_5x5: List[List[int]]) -> np.ndarray:
     arr = np.array(pattern_5x5, dtype=float)
-    return arr.reshape(1, 25)
+    return arr.reshape(1, INPUT_SIZE)
 
 
 def print_pattern(pattern_5x5: List[List[int]]) -> None:
@@ -282,7 +291,7 @@ def build_dataset(dataset_path: str = DEFAULT_DATASET_PATH) -> Tuple[np.ndarray,
     for _, item in patterns.items():
         p = item["pattern"]
         label = int(item["label"])
-        x_list.append(np.array(p, dtype=float).reshape(25))
+        x_list.append(np.array(p, dtype=float).reshape(INPUT_SIZE))
         y_list.append(label)
 
     x = np.array(x_list, dtype=float)

@@ -10,7 +10,8 @@ try:
 except Exception:
     st_canvas = None
 
-from ann_pattern_recognition import (SimpleANN, build_dataset, default_patterns,
+from ann_pattern_recognition import (DEFAULT_DATASET_PATH, GRID_SIZE, INPUT_SIZE,
+                                     SimpleANN, build_dataset, default_patterns,
                                      load_patterns, save_patterns)
 
 st.set_page_config(page_title="ANN Pattern Recognition", layout="wide")
@@ -20,7 +21,7 @@ presentation_mode = st.toggle("Presentation Mode", value=True, help="Cleaner vie
 
 
 if "grid" not in st.session_state:
-    st.session_state.grid = [[0 for _ in range(5)] for _ in range(5)]
+    st.session_state.grid = [[0 for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
 if "trained_model" not in st.session_state:
     st.session_state.trained_model = None
 if "last_metrics" not in st.session_state:
@@ -37,16 +38,16 @@ if "last_prediction" not in st.session_state:
     st.session_state.last_prediction = None
 if "last_eval" not in st.session_state:
     st.session_state.last_eval = None
-for r in range(5):
-    for c in range(5):
+for r in range(GRID_SIZE):
+    for c in range(GRID_SIZE):
         key = f"pixel_{r}_{c}"
         if key not in st.session_state:
             st.session_state[key] = bool(st.session_state.grid[r][c])
 
 
 def update_checkboxes_from_grid() -> None:
-    for rr in range(5):
-        for cc in range(5):
+    for rr in range(GRID_SIZE):
+        for cc in range(GRID_SIZE):
             st.session_state[f"pixel_{rr}_{cc}"] = bool(st.session_state.grid[rr][cc])
 
 
@@ -67,13 +68,13 @@ def canvas_to_grid(image_data: np.ndarray) -> list[list[int]]:
     # image_data is RGBA; convert to grayscale then downsample to 5x5.
     gray = np.mean(image_data[:, :, :3], axis=2)
     h, w = gray.shape
-    out = np.zeros((5, 5), dtype=int)
-    for r in range(5):
-        for c in range(5):
-            r0 = int(r * h / 5)
-            r1 = int((r + 1) * h / 5)
-            c0 = int(c * w / 5)
-            c1 = int((c + 1) * w / 5)
+    out = np.zeros((GRID_SIZE, GRID_SIZE), dtype=int)
+    for r in range(GRID_SIZE):
+        for c in range(GRID_SIZE):
+            r0 = int(r * h / GRID_SIZE)
+            r1 = int((r + 1) * h / GRID_SIZE)
+            c0 = int(c * w / GRID_SIZE)
+            c1 = int((c + 1) * w / GRID_SIZE)
             cell = gray[r0:r1, c0:c1]
             # Black strokes reduce intensity; threshold for active pixel.
             out[r, c] = 1 if np.mean(cell) < 220 else 0
@@ -84,7 +85,7 @@ left, right = st.columns([1.2, 1])
 
 with left:
     st.subheader("Training")
-    dataset_path = "patterns.json"
+    dataset_path = DEFAULT_DATASET_PATH
     epochs = st.slider(
         "Epochs",
         min_value=200,
@@ -185,7 +186,7 @@ with left:
 
     with c2:
         if st.button("Reset Grid", use_container_width=True):
-            st.session_state.grid = [[0 for _ in range(5)] for _ in range(5)]
+            st.session_state.grid = [[0 for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
             update_checkboxes_from_grid()
             st.session_state.canvas_key += 1
 
@@ -326,9 +327,9 @@ with right:
         if st_canvas is None:
             st.warning("Canvas package missing. Using compact pixel fallback.")
             with st.expander("Fallback 5x5 Pixel Grid", expanded=True):
-                for r in range(5):
-                    cols = st.columns(5)
-                    for c in range(5):
+                for r in range(GRID_SIZE):
+                    cols = st.columns(GRID_SIZE)
+                    for c in range(GRID_SIZE):
                         key = f"pixel_{r}_{c}"
                         with cols[c]:
                             st.checkbox(f"pixel-{r}-{c}", key=key, label_visibility="collapsed")
@@ -341,7 +342,7 @@ with right:
                 with control_col2:
                     if st.button("Clear Canvas", use_container_width=True):
                         st.session_state.canvas_key += 1
-                        st.session_state.grid = [[0 for _ in range(5)] for _ in range(5)]
+                        st.session_state.grid = [[0 for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
                         update_checkboxes_from_grid()
                         st.session_state.last_prediction = None
 
@@ -371,7 +372,7 @@ with right:
                 buf.seek(0)
                 st.image(buf, caption="Model Input (5x5)", width=140)
 
-        grid_arr = np.array(st.session_state.grid, dtype=float).reshape(1, 25)
+        grid_arr = np.array(st.session_state.grid, dtype=float).reshape(1, INPUT_SIZE)
         if st.button("Predict", use_container_width=True):
             prob = float(st.session_state.trained_model.predict(grid_arr)[0, 0])
             pred = 1 if prob >= 0.5 else 0

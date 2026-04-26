@@ -54,4 +54,4 @@ This demonstrates core neural-network learning behavior and how input variation 
 - One clean terminal demo recorded
 - Include dataset-change interpretation segment
 - Upload video to YouTube (unlisted is fine unless instructed otherwise)
-- Paste link into `short_report_template.md` and submit
+- Paste link into `docs/short_report_template.md` and submit

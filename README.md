@@ -69,6 +69,13 @@ Frontend features:
 - Re-train instantly to interpret dataset changes live
 - Show training curves, per-sample outputs, and confusion matrix
 
+## Documentation
+- `docs/README.md` -> documentation index
+- `docs/TECHNICAL_GUIDE.md` -> full technical explanation
+- `docs/LINE_BY_LINE_NOTES.md` -> code walkthrough notes
+- `docs/presentation_script.md` -> presentation script
+- `docs/short_report_template.md` -> report template
+
 ## What the Program Shows
 - Training progress with loss and accuracy
 - Predictions for each training pattern
